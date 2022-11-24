@@ -1,19 +1,19 @@
-package com.siva.siva.sivasecurity.service.userservice;
+package com.siva.siva.sivasecurity.service.impl;
 
 
-import com.siva.siva.sivasecurity.dto.BookTicketDto.BookSeatForShowRequest;
-import com.siva.siva.sivasecurity.dto.BookTicketDto.BookSeatForShowResponse;
-import com.siva.siva.sivasecurity.dto.ListAllShowTimingsByTheaterNameOrMovieName.ListAllTheaterByMovieName.AllTheaterByMovieNameDto;
+import com.siva.siva.sivasecurity.dto.BookSeatForShowRequest;
+import com.siva.siva.sivasecurity.dto.BookSeatForShowResponse;
+import com.siva.siva.sivasecurity.dto.AllTheaterByMovieNameDto;
 import com.siva.siva.sivasecurity.model.Booking;
 import com.siva.siva.sivasecurity.model.User;
 import com.siva.siva.sivasecurity.repository.UserRepository;
-import com.siva.siva.sivasecurity.service.bookingservice.BookingService;
+import com.siva.siva.sivasecurity.service.BookingService;
+import com.siva.siva.sivasecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService {
         List<AllTheaterByMovieNameDto> t = restTemplate.getForObject("http://localhost:8080/findAllShowScreenByMoviesName/avathar 2", List.class);
         return t;
     }
-
 
     @Override
     public BookSeatForShowResponse bookSeatForShowScreen(BookSeatForShowRequest request) {
@@ -59,9 +58,9 @@ public class UserServiceImpl implements UserService {
         booking.setUserId(user.get().getId());
         booking.setTicketCount(seat.getBookedSeats());
         if (seat.getBookedSeats()==0){
-            booking.setStatus("Success");
-        }else {
             booking.setStatus("Failed");
+        }else {
+            booking.setStatus("Success");
         }
 
         bookingService.saveBookingDetails(booking);

@@ -1,8 +1,7 @@
-package com.siva.siva.sivasecurity.dto.ListAllShowTimingsByTheaterNameOrMovieName.ListAllTheaterByMovieName;
+package com.siva.siva.sivasecurity.dto;
 
 
 
-import com.siva.siva.sivasecurity.dto.ListAllShowTimingsByTheaterNameOrMovieName.ShowScreenTimingDto;
 import lombok.Data;
 
 import java.util.List;

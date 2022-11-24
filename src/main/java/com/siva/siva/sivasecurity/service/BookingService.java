@@ -1,6 +1,5 @@
-package com.siva.siva.sivasecurity.service.bookingservice;
+package com.siva.siva.sivasecurity.service;
 
-import com.siva.siva.sivasecurity.dto.BookingDetail;
 import com.siva.siva.sivasecurity.dto.BookingDetailDto;
 import com.siva.siva.sivasecurity.model.Booking;
 

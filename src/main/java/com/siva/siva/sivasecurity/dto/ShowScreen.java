@@ -1,11 +1,14 @@
-package com.siva.siva.sivasecurity.dto.ListAllShowTimingsByTheaterNameOrMovieName;
+package com.siva.siva.sivasecurity.dto;
+
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
-public class ShowScreenTimingDto {
+@NoArgsConstructor
+public class ShowScreen {
 
     private long showId;
 
@@ -14,4 +17,9 @@ public class ShowScreenTimingDto {
     private int totalSeat;
 
     private int bookedSeat;
+
+    private Theater theater;
+
+    private Movie movie;
+
 }

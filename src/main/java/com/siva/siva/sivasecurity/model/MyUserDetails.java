@@ -10,32 +10,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
-
-
     private String userName;
     private String password;
-
     private long id;
-
     private long mobile;
     private List<GrantedAuthority> authorities;
 
-
-
-    public MyUserDetails(User user){
-        this.userName=user.getUserName();
-        this.password=user.getPassword();
-        this.authorities= Arrays.stream(user.getRole().split(","))
+    public MyUserDetails(User user) {
+        this.userName = user.getUserName();
+        this.password = user.getPassword();
+        this.authorities = Arrays.stream(user.getRole().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
-        this.mobile= user.getMobile();
-        this.id= user.getId();
+        this.mobile = user.getMobile();
+        this.id = user.getId();
     }
-
-   // public MyUserDetails(){}
-
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

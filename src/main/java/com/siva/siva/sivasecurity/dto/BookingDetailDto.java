@@ -9,9 +9,9 @@ public class BookingDetailDto {
 
     private long bookingId;
 
-    private String movieName;
-
     private String theaterName;
+
+    private String movieName;
 
     private LocalDateTime date;
 

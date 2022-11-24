@@ -1,12 +1,11 @@
-package com.siva.siva.sivasecurity.dto.bookmyshowdto;
-
+package com.siva.siva.sivasecurity.dto;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class ShowScreenDto {
+public class ShowScreenTimingDto {
 
     private long showId;
 
@@ -15,9 +14,4 @@ public class ShowScreenDto {
     private int totalSeat;
 
     private int bookedSeat;
-
-    private TheaterDto theaterDto;
-
-    private MovieDto movieDto;
-
 }

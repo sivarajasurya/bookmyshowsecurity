@@ -1,9 +1,10 @@
-package com.siva.siva.sivasecurity.service.bookingservice;
+package com.siva.siva.sivasecurity.service.impl;
 
 import com.siva.siva.sivasecurity.dto.BookingDetailDto;
-import com.siva.siva.sivasecurity.dto.bookmyshowdto.ShowScreenDto;
+import com.siva.siva.sivasecurity.dto.ShowScreen;
 import com.siva.siva.sivasecurity.model.Booking;
 import com.siva.siva.sivasecurity.repository.BookingRepository;
+import com.siva.siva.sivasecurity.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -36,13 +37,13 @@ public class BookingServiceImpl implements BookingService {
         Optional<Booking> booking = bookingRepository.findById(bookingId);
         long showId = booking.get().getShowId();
 
-        ShowScreenDto seat = restTemplate.getForObject("http://localhost:8080/getShowScreenByShowId/" + showId , ShowScreenDto.class);
+        ShowScreen seat = restTemplate.getForObject("http://localhost:8080/getShowScreenByShowId/" + showId , ShowScreen.class);
 
         BookingDetailDto dto = new BookingDetailDto();
 
         dto.setBookingId(booking.get().getId());
-        dto.setMovieName(seat.getMovieDto().getMovieName());
-        dto.setTheaterName(seat.getMovieDto().getMovieName());
+        dto.setMovieName(seat.getMovie().getMovieName());
+        dto.setTheaterName(seat.getTheater().getTheaterName());
         dto.setDate(seat.getDate());
         dto.setTicketCount(booking.get().getTicketCount());
 

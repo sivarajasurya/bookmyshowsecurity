@@ -1,4 +1,4 @@
-package com.siva.siva.sivasecurity.dto.ListAllShowTimingsByTheaterNameOrMovieName.ListAllMoviesByTheaterName;
+package com.siva.siva.sivasecurity.dto;
 
 
 import lombok.Data;

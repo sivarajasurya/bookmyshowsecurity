@@ -32,8 +32,8 @@ public class SecurityConfiguration  {
         return http
                 .authorizeHttpRequests(auth -> {
             auth.antMatchers("/").permitAll();
-            auth.antMatchers("/user/**").hasRole("USER");
-            auth.antMatchers("/admin/**").hasAnyRole("ADMIN","USER");
+            auth.antMatchers("/user/**").hasAnyRole("USER","ADMIN");
+            auth.antMatchers("/admin/**").hasRole("ADMIN");
 
         } )
                 .httpBasic(Customizer.withDefaults()).formLogin().and().build();
@@ -41,5 +41,4 @@ public class SecurityConfiguration  {
 
     @Bean
     public PasswordEncoder getPasswordEncoder(){return NoOpPasswordEncoder.getInstance();}
-
 }

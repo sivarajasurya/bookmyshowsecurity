@@ -1,4 +1,4 @@
-package com.siva.siva.sivasecurity.dto.BookTicketDto;
+package com.siva.siva.sivasecurity.dto;
 
 import lombok.Data;
 
